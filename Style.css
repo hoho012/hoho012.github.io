@@ -1,0 +1,160 @@
+:root {
+  font-size: 16px;
+  font-family: 'Roboto';
+  --text-primary: #b6b6b6;
+  --text-secondary: #ececec;
+  --bg-primary: #23232e;
+  --bg-secondary: #141418;
+  --transition-speed: 600ms ease;
+}
+
+body {
+  color: black;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+
+body::-webkit-scrollbar {
+  width:0.25rem;
+}
+
+body::-webkit-scrollbar-track {
+  background:#1e1e24;
+}
+
+body::-webkit-scrollbar-thumb {
+  background:#6649b8;
+}
+
+.navbar {
+  position: fixed;
+  background-color: var(--bg-primary);
+  transition: width 200ms ease;
+}
+
+/* Large Screens */
+@media only screen and (min-width: 600px) {
+
+  main {
+    margin-left: 5rem;
+    padding: 1rem;
+  }
+
+  .navbar {
+    width: 5rem;
+    height: 100vh;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+  }
+
+  .navbar:hover {
+    width: 16rem;
+  }
+
+  .navbar:hover .link-text {
+    display: block;
+    transition: opacity var(--transition-speed);
+  }
+
+  .popup-heading {
+    display: none;
+  }
+}
+
+/* Small Screens */
+@media only screen and (max-width: 600px) {
+
+  main {
+    margin-left: 1rem;
+    padding: 1rem;
+  }
+
+  .navbar {
+    bottom: 0;
+    width: 100vw;
+    height: 5rem;
+  }
+
+  .navbar-nav {
+    flex-direction: row;
+  }
+
+  .nav-link {
+    justify-content: center;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    z-index: 1;
+    padding: 0.5rem;
+    bottom: 100%;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+}
+
+/* General navbar settings */
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-item {
+  width: 100%;
+}
+
+/* item color */
+.item-color {
+  color: #f9d696;
+}
+
+/* item spacing + color transitions */
+.nav-link {
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  filter: grayscale(100%) opacity(0.7);
+  transition: var(--transition-speed);
+}
+
+.nav-link:hover {
+  filter: grayscale(0%) opacity(1);
+  background: var(--bg-secondary);
+}
+
+/* hide link-text when not hovering */
+.link-text {
+  display: none;
+  margin-left: 1rem;
+}
+
+/* item size */
+.nav-link svg {
+  width: 2rem;
+  min-width: 2rem;
+  margin: 0 1.5rem;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0
+  }
+}
